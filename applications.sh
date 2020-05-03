@@ -33,7 +33,7 @@ then
     sudo apt-get update
     echo "finish gnome-tweak-tools"
 
-    echo "start sublimetext"
+    echo "start sublime-text"
     wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
     sudo apt-get install apt-transport-https
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -58,8 +58,16 @@ then
     sudo apt-get update
     echo "finish opera"
 
-    #echo "start Teamviever"
-    #wget https://dl.teamviewer.com/download/linux/version_15x/teamviewer_15.5.3_amd64.deb
+    echo "start Teamviever"
+    wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+    sudo apt install ./teamviewer_amd64.deb
+    sudo apt install ./teamviewer_amd64.deb
+
+    echo "dconf editor start"
+    gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+    sudo apt-get update -y
+    sudo apt-get install dconf-editor -y
+    echo "dconf-editor finish"
 
 
 
@@ -81,6 +89,10 @@ then
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
     sudo yum localinstall google-chrome-stable_current_x86_64.rpm
     echo "finish for chrome"
+
+    #echo "start Teamviever"
+    #sudo dnf install epel-release
+
 fi
 
 echo "start for docker usermod"
