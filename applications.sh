@@ -58,8 +58,8 @@ then
     sudo apt-get update
     echo "finish opera"
 
-    echo "start Teamviever"
-    wget https://dl.teamviewer.com/download/linux/version_15x/teamviewer_15.5.3_amd64.deb
+    #echo "start Teamviever"
+    #wget https://dl.teamviewer.com/download/linux/version_15x/teamviewer_15.5.3_amd64.deb
 
 
 
@@ -68,20 +68,18 @@ elif [ $2 == 'centos' ]
 then
     echo "start for first installation"
     sudo yum install git docker docker-compose 
+    sudo yum -y install wget
     echo "finish for first installation"
 
     echo "start for spotify"
-    #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-    #echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-    sudo yum update
-    sudo yum install spotify-client
+    sudo dnf install snapd
+    sudo ln -s /var/lib/snapd/snap /snap
+    sudo snap install spotify
     echo "finish for spotify"
 
     echo "start for chrome"
-    #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    #sudo dpkg -i google-chrome-stable_current_amd64.deb
-    #sudo apt-get install -f #deb dosya  kurulumundan sonraki bağımlılıkları indirir
-    #sudo rm -rf google-chrome-stable_current_amd64.deb
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    sudo yum localinstall google-chrome-stable_current_x86_64.rpm
     echo "finish for chrome"
 fi
 
