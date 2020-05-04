@@ -63,11 +63,16 @@ then
     sudo apt install ./teamviewer_amd64.deb
     sudo apt install ./teamviewer_amd64.deb
 
-    echo "dconf editor start"
+    echo "start dconf editor "
     gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     sudo apt-get update -y
     sudo apt-get install dconf-editor -y
-    echo "dconf-editor finish"
+    echo "finish dconf-editor "
+
+    echo "start Telegram"
+    sudo add-apt-repository ppa:atareao/telegram
+    sudo apt update && sudo apt install telegram
+    echo "finish Telegram"
 
 
 
