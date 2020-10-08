@@ -74,6 +74,12 @@ then
     sudo apt update && sudo apt install telegram
     echo "finish Telegram"
 
+    echo "Start Gthumb"
+    sudo add-apt-repository ppa:dhor/myway
+    sudo apt update && sudo apt install gthumb
+    sudo add-apt-repository --remove ppa:dhor/myway
+    echo "Finish Gthumb"
+
 
 
 
